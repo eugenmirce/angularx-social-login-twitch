@@ -91,14 +91,14 @@ const twitchInitOptions: {
 ```
 You can use them in the `AppModule`
 ```javascript
-		  ...
-          providers: [
-          {
-            id: TwitchLoginProvider.PROVIDER_ID,
-            provider: new TwitchLoginProvider(
-              'YOUR_CLIENT_ID', twitchInitOptions
-            )
-          }
-        ]
-        ...
+...
+providers: [
+  {
+    id: TwitchLoginProvider.PROVIDER_ID,
+    provider: new TwitchLoginProvider(
+      'YOUR_CLIENT_ID', twitchInitOptions
+    )
+  }
+]
+...
 ```
