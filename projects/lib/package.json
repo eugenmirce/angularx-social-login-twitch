@@ -1,0 +1,28 @@
+{
+  "name": "@eugenmirce/angularx-social-login-twitch",
+  "description": "Extension for angularx-social-login library that supports authentication for Twitch.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eugenmirce/angularx-social-login-twitch.git"
+  },
+  "author": "Eugen Mirce <eugenmirce@gmail.com>",
+  "keywords": [
+    "angular",
+    "angular-social-login",
+    "social-authentication",
+    "twitch-login",
+    "twitch-authentication"
+  ],
+  "license": "MIT",
+  "bugs": "https://github.com/eugenmirce/angularx-social-login/issues",
+  "version": "1.0.0",
+  "peerDependencies": {
+    "@abacritt/angularx-social-login": ">=2.1.0",
+    "@angular/common": ">=16.0.0",
+    "@angular/core": ">=16.0.0"
+  },
+  "dependencies": {
+    "tslib": ">2.5.0"
+  },
+  "homepage": "https://github.com/eugenmirce/angularx-social-login#readme"
+}

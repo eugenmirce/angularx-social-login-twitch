@@ -1,27 +1,104 @@
-# TwitchLoginLibrary
+# Twitch Angular Social Login
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.2.
+## Description
+Twitch social login extension for [@abacritt/angularx-social-login](https://github.com/abacritt/angularx-social-login) Angular Library.
 
-## Development server
+## Installation
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### Install via npm
+```bash
+npm i @abacritt/angularx-social-login @eugenmirce/anguarx-social-login-twitch
+```
+Also installing the angularx-social-login module as it is a dependency.
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Import the module
+Import the `angularx-social-login` modules needed for the social login.  
+Add `SocialLoginModule` and `SocialAuthServiceConfig` in your `AppModule`. Then import the `TwitchLoginProvider` and then configure the `SocialLoginModule` with the `TwitchLoginProvider`.
+```javascript
+import {SocialLoginModule, SocialAuthServiceConfig} from '@abacritt/angularx-social-login';
+import {TwitchLoginProvider} from '@eugenmirce/angularx-social-login-twitch';
 
-## Build
+@NgModule({
+  declarations: [
+    ...
+  ],
+  imports: [
+    ...
+    SocialLoginModule
+  ],
+  providers: [
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: TwitchLoginProvider.PROVIDER_ID,
+            provider: new TwitchLoginProvider(
+              'YOUR_CLIENT_ID',
+              {
+                redirectUri: 'YOUR_REDIRECT_URL',
+                scopes: ['user:read:email']
+              }
+            )
+          }
+        ],
+        onError: (err) => {
+          console.error(err);
+        }
+      } as SocialAuthServiceConfig,
+    }],
+    // other module configurations
+})
+export class AppModule { }
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Sign in with Twitch
 
-## Running unit tests
+```javascript
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+import { SocialAuthService } from "@abacritt/angularx-social-login";
+import { TwitchLoginProvider } from "@eugenmirce/angularx-social-login-twitch";
 
-## Running end-to-end tests
+@Component({
+  selector: 'app-demo',
+  templateUrl: './demo.component.html',
+  styleUrls: ['./demo.component.css']
+})
+export class DemoComponent {
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+  constructor(private authService: SocialAuthService) { }
 
-## Further help
+  signInWithTwitch(): void {
+    this.authService.signIn(TwitchLoginProvider.PROVIDER_ID);
+  }
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+  signOut(): void {
+    this.authService.signOut();
+  }
+}
+```
+
+### Specifying custom scopes
+```javascript
+const twitchInitOptions: {
+  redirectUri: 'YOUR_REDIRECT_URI',
+  scopes: ['user:read:email'], // To get access to logged in user email information
+  forceVerify: false, // Force the user to re-authorize on each login [default is false]
+  responseType: 'token'; // Use token for implicit grant authentication flow that is the one supported
+};
+```
+You can use them in the `AppModule`
+```javascript
+		  ...
+          providers: [
+          {
+            id: TwitchLoginProvider.PROVIDER_ID,
+            provider: new TwitchLoginProvider(
+              'YOUR_CLIENT_ID', twitchInitOptions
+            )
+          }
+        ]
+        ...
+```
