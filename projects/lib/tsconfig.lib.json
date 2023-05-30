@@ -16,5 +16,16 @@
   "exclude": [
     "src/test/ts",
     "**/*.spec.ts"
-  ]
+  ],
+  "angularCompilerOptions": {
+    "compilationMode": "partial",
+    "enableIvy": false,
+    "skipTemplateCodegen": true,
+    "strictMetadataEmit": true,
+    "fullTemplateTypeCheck": true,
+    "strictInjectionParameters": true,
+    "enableResourceInlining": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
+  }
 }

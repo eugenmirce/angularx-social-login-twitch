@@ -14,8 +14,8 @@
     "twitch-authentication"
   ],
   "license": "MIT",
-  "bugs": "https://github.com/eugenmirce/angularx-social-login/issues",
-  "version": "1.0.0",
+  "bugs": "https://github.com/eugenmirce/angularx-social-login-twitch/issues",
+  "version": "1.0.1",
   "peerDependencies": {
     "@abacritt/angularx-social-login": ">=2.1.0",
     "@angular/common": ">=16.0.0",
@@ -24,5 +24,5 @@
   "dependencies": {
     "tslib": ">2.5.0"
   },
-  "homepage": "https://github.com/eugenmirce/angularx-social-login#readme"
+  "homepage": "https://github.com/eugenmirce/angularx-social-login-twitch#readme"
 }
