@@ -4,7 +4,8 @@ import { HttpHeaders, HttpParams } from "@angular/common/http";
  * Utils Service
  */
 export class UtilsService {
-    constructor() { }
+    constructor() {
+    }
 
     /**
      * Request construct and retrieve response
@@ -19,18 +20,18 @@ export class UtilsService {
         return new Promise((resolve, reject) => {
             const xhr = new XMLHttpRequest();
 
-            if (headers) {
-                headers.keys().forEach((header: string) => {
-                    xhr.setRequestHeader(header, headers.get(header)!);
-                });
-            }
-
             if (params) {
                 url += `?${params.toString()}`;
             }
 
             xhr.open(method, url);
             xhr.responseType = 'json';
+
+            if (headers) {
+                headers.keys().forEach((header: string) => {
+                    xhr.setRequestHeader(header, headers.get(header)!);
+                });
+            }
 
             xhr.onload = () => {
                 if (xhr.status >= 200 && xhr.status < 300) {

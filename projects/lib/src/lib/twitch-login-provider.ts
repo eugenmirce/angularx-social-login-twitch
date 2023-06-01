@@ -248,7 +248,7 @@ export class TwitchLoginProvider extends BaseLoginProvider {
     private getAuthorizationUrl(): string {
         let scope;
         if (Array.isArray(this.initOptions.scopes)) {
-            scope = [this.initOptions.scopes].join(',');
+            scope = this.initOptions.scopes.join(',');
         } else {
             scope = this.initOptions.scopes;
         }
@@ -258,7 +258,7 @@ export class TwitchLoginProvider extends BaseLoginProvider {
             .set('redirect_uri', this.initOptions.redirectUri)
             .set('response_type', this.initOptions.responseType || 'token')
             .set('scope', scope);
-        let request = new HttpRequest('GET', TwitchLoginProvider.TWITCH_AUTH_URL, null, { params });
+        let request = new HttpRequest('GET', TwitchLoginProvider.TWITCH_AUTH_URL, null, {params});
 
         return request.urlWithParams;
     }

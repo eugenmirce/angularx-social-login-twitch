@@ -25,7 +25,7 @@ import {TwitchLoginProvider} from '@eugenmirce/angularx-social-login-twitch';
   ],
   imports: [
     ...
-    SocialLoginModule
+      SocialLoginModule
   ],
   providers: [
     {
@@ -49,7 +49,7 @@ import {TwitchLoginProvider} from '@eugenmirce/angularx-social-login-twitch';
         }
       } as SocialAuthServiceConfig,
     }],
-    // other module configurations
+  // other module configurations
 })
 export class AppModule { }
 ```
@@ -70,13 +70,13 @@ export class DemoComponent {
 
   constructor(private authService: SocialAuthService) { }
 
-  signInWithTwitch(): void {
-    this.authService.signIn(TwitchLoginProvider.PROVIDER_ID);
-  }
+signInWithTwitch(): void {
+  this.authService.signIn(TwitchLoginProvider.PROVIDER_ID);
+}
 
-  signOut(): void {
-    this.authService.signOut();
-  }
+signOut(): void {
+  this.authService.signOut();
+}
 }
 ```
 
@@ -86,7 +86,7 @@ const twitchInitOptions: {
   redirectUri: 'YOUR_REDIRECT_URI',
   scopes: ['user:read:email'], // To get access to logged in user email information
   forceVerify: false, // Force the user to re-authorize on each login [default is false]
-  responseType: 'token'; // Use token for implicit grant authentication flow that is the one supported
+  responseType: 'token' // Use token for implicit grant authentication flow that is the one supported
 };
 ```
 You can use them in the `AppModule`
@@ -102,3 +102,9 @@ providers: [
 ]
 ...
 ```
+
+### Check our other social login providers in Angular
+
+| Name                          | Repository                                                            | NPM                                                                            |
+|-------------------------------|-----------------------------------------------------------------------|--------------------------------------------------------------------------------|
+| angularx-social-login-discord | [Github](https://github.com/eugenmirce/angularx-social-login-discord) | [npm](https://www.npmjs.com/package/@eugenmirce/angularx-social-login-discord) |
