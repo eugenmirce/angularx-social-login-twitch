@@ -108,3 +108,4 @@ providers: [
 | Name                          | Repository                                                            | NPM                                                                            |
 |-------------------------------|-----------------------------------------------------------------------|--------------------------------------------------------------------------------|
 | angularx-social-login-discord | [Github](https://github.com/eugenmirce/angularx-social-login-discord) | [npm](https://www.npmjs.com/package/@eugenmirce/angularx-social-login-discord) |
+| angularx-social-login-spotify | [Github](https://github.com/eugenmirce/angularx-social-login-spotify) | [npm](https://www.npmjs.com/package/@eugenmirce/angularx-social-login-spotify) |
